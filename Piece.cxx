@@ -1,0 +1,34 @@
+#include "Piece.h"
+
+Piece::Piece(bool couleur, std::string position){
+    this->couleur = couleur;
+    this->position = position;
+}
+
+void Piece::deplacer(std::string position){
+    this->position = position;
+}
+
+void Piece::deplacer(int x, int y){
+    this->position = std::to_string('A' + x) + std::to_string(y);
+}
+
+bool Piece::operator==(Piece &p){
+    return (this->position == p.position);
+}
+
+void Piece::messageMort(){
+    std::cout << "La piece est morte" << std::endl;
+}
+
+Piece::~Piece(){
+    messageMort();
+}
+
+std::string Piece::getType(){
+    return this->type;
+}
+
+std::string Piece::getPosition(){
+    return this->position;
+}
