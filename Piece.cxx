@@ -1,5 +1,7 @@
 #include "Piece.h"
 
+#include <string>
+
 Piece::Piece(bool couleur, std::string position){
     this->couleur = couleur;
     this->position = position;

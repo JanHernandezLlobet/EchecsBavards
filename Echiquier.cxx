@@ -53,6 +53,6 @@ Echiquier::~Echiquier() {
 
 void Echiquier::ajouterPiece(Piece* piece, std::string position) {
 
-    pos1 = position
+    std::string pos1 = position;
 
 }
