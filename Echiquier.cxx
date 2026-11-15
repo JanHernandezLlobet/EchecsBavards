@@ -37,6 +37,7 @@ void Echiquier::afficher(){
         printf("\n  |-----|-----|-----|-----|-----|-----|-----|-----|\n");
     }
     printf("\n");
+    printf("[CHAT]:\n             chat a faire...");
 }
 
 Echiquier::~Echiquier(){
