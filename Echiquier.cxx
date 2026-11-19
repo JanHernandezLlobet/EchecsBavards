@@ -81,3 +81,4 @@ void Echiquier::enleverPiece(int x, int y){
     }
 }
 
+
