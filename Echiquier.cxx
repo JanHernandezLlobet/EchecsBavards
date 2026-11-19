@@ -21,23 +21,23 @@ Echiquier::Echiquier(int longueur, int largeur, bool couleur) {
 
 void Echiquier::afficher() {
 
-    printf("\n\n     A     B     C     D     E     F     G     H\n");
-    printf("  |-----|-----|-----|-----|-----|-----|-----|-----|\n");
+    std::cout << "\n\n     A     B     C     D     E     F     G     H\n";
+    std::cout << "  |-----|-----|-----|-----|-----|-----|-----|-----|\n";
     for (int i = 0; i < longueur; i++){
-        printf("%d |", i + 1);
+        std::cout << i + 1 << " |";
 
 
         for (int j = 0; j < largeur; j++){
             if(grille[i][j] == nullptr){
-                printf("     ");
+                std::cout << "     ";
             } else {
-                printf(" %s ", grille[i][j]->getType());
+                std::cout << " " << grille[i][j]->getType() << " ";
             }
-            printf("|");
+            std::cout << "|";
         }
-        printf("\n  |-----|-----|-----|-----|-----|-----|-----|-----|\n");
+        std::cout << "\n  |-----|-----|-----|-----|-----|-----|-----|-----|\n";
     }
-    printf("\n");
+    std::cout << "\n";
 }
 
 Echiquier::~Echiquier() {
