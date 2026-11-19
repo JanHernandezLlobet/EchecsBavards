@@ -2,9 +2,10 @@
 
 #include <string>
 
-Piece::Piece(bool couleur, std::string position){
+Piece::Piece(bool couleur, std::string position, std::string type) {
     this->couleur = couleur;
     this->position = position;
+    this->type = type;
 }
 
 void Piece::deplacer(std::string position){

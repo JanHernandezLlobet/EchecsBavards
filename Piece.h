@@ -11,7 +11,7 @@ class Piece{
         std::string type;
 
     public:
-        Piece(bool couleur, std::string position);
+        Piece(bool couleur, std::string position, std::string type);
         void deplacer(std::string position);
         void deplacer(int x, int y);
         bool operator==(Piece &p);
