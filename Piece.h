@@ -4,13 +4,14 @@
 using namespace std;
 #include <vector>
 
+enum class TypePiece { PION, TOUR, CAVALIER, FOU, REINE, ROI };
 
 class Piece{
 
     public:
 
         std::string position;
-        std::string type;
+        TypePiece type;
 
         bool couleur;
 

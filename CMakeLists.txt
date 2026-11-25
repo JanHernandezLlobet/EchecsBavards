@@ -7,5 +7,8 @@ add_executable(EchecsBavards
         main.cxx
         Piece.cxx
         Echiquier.cxx
+        Reine.cxx
+        Cavalier.cxx
+        Pion.h
 )
 
