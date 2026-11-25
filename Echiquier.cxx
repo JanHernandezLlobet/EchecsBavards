@@ -81,6 +81,10 @@ void Echiquier::enleverPiece(int x, int y){
     }
 }
 
+bool Echiquier::caseAttaquee(string pos) {
+
+}
+
 
 
 
