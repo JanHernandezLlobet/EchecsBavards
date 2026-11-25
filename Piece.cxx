@@ -39,3 +39,9 @@ std::string Piece::getPosition(){
 std::vector<std::vector<std::pair<int, int> > > Piece::getDeplacementsPossibles(int x, int y) {
     std::cout << "Do Not Use / Not implemented yet";
 }
+
+std::vector<std::vector<std::pair<int, int> > > Piece::getDeplacementsPossibles() {
+    int x = this->position[0] - 'A';
+    int y = this->position[1] - '0';
+    return getDeplacementsPossibles(x, y);
+}

@@ -11,7 +11,7 @@ class Cavalier : public Piece {
         Cavalier(bool couleur, std::string position);
         void messageMort();
         ~Cavalier();
-       
+        static std::vector<std::vector<std::pair<int, int>>> getDeplacementsPossibles(int x, int y);
 };
 
 #endif

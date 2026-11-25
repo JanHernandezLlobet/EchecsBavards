@@ -11,3 +11,16 @@ void Cavalier::messageMort(){
 Cavalier::~Cavalier(){
     messageMort();
 }
+
+std::vector<std::vector<std::pair<int, int>>> Cavalier::getDeplacementsPossibles(int x, int y){
+    std::vector<std::vector<std::pair<int, int>>> deplacements;
+    deplacements.push_back({{x+1, y+2}});
+    deplacements.push_back({{x+1, y-2}});
+    deplacements.push_back({{x-1, y+2}});
+    deplacements.push_back({{x-1, y-2}});
+    deplacements.push_back({{x+2, y+1}});
+    deplacements.push_back({{x+2, y-1}});
+    deplacements.push_back({{x-2, y+1}});
+    deplacements.push_back({{x-2, y-1}});
+    return deplacements;
+}
