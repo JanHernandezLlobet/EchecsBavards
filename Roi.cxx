@@ -11,3 +11,16 @@ void Roi::messageMort(){
 Roi::~Roi(){
     messageMort();
 }
+
+std::vector<std::vector<std::pair<int, int>>> Roi::getDeplacementsPossibles(int x, int y){
+    std::vector<std::vector<std::pair<int, int>>> deplacements;
+    deplacements.push_back({{x+1, y+1}});
+    deplacements.push_back({{x+1, y-1}});
+    deplacements.push_back({{x-1, y+1}});
+    deplacements.push_back({{x-1, y-1}});
+    deplacements.push_back({{x+1, y}});
+    deplacements.push_back({{x-1, y}});
+    deplacements.push_back({{x, y+1}});
+    deplacements.push_back({{x, y-1}});
+    return deplacements;
+}

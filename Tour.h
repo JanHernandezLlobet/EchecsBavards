@@ -11,6 +11,8 @@ class Tour : public Piece {
         Tour(bool couleur, std::string position);
         void messageMort();
         ~Tour();
+        std::vector<std::vector<std::pair<int, int>>> getDeplacementsPossibles(int x, int y);
+
 
 };
 

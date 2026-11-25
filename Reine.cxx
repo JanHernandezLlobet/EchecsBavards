@@ -13,6 +13,11 @@ Reine::~Reine(){
 }
 
 std::vector<std::vector<std::pair<int, int>>> Reine::getDeplacementsPossibles(int x, int y){
+    return getDeplacementsReine(x, y);
+}
+
+
+std::vector<std::vector<std::pair<int, int>>> Reine::getDeplacementsReine(int x, int y){
     std::vector<std::vector<std::pair<int, int>>> deplacements;
     int droite = x;
     int gauche = 9-x;

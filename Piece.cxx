@@ -3,7 +3,7 @@
 #include <string>
 
 Piece::Piece(bool couleur, std::string position, std::string type) {
-    this->couleur = couleur;
+    this->couleur = couleur; // true = blanc, false = noir
     this->position = position;
     this->type = type;
 }
@@ -34,6 +34,10 @@ std::string Piece::getType(){
 
 std::string Piece::getPosition(){
     return this->position;
+}
+
+bool Piece::getCouleur(){
+    return this->couleur;
 }
 
 std::vector<std::vector<std::pair<int, int> > > Piece::getDeplacementsPossibles(int x, int y) {

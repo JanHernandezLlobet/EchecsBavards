@@ -13,6 +13,8 @@ class Pion : public Piece {
         Pion(bool couleur, std::string position);
         void messageMort();
         ~Pion();
+        std::vector<std::vector<std::pair<int, int>>> getDeplacementsPossibles(int x, int y);
+        bool getCouleur();
 
 };
 
