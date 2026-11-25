@@ -25,7 +25,7 @@ class Echiquier{
         //bool caseAttaquee(int x, int y);
         //bool coupPossible(Piece* piece, std::string position);
         //bool coupPossible(Piece* piece, int x, int y);
-        bool caseAttaquee(string pos);
+        bool caseAttaquee(int x, int y);
 
 };
 

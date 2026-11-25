@@ -1,6 +1,7 @@
 #include "Echiquier.h"
 #include "Piece.h"
 #include <iostream>
+#include <vector>
 using namespace std;
 
 Echiquier::Echiquier(int longueur, int largeur, bool couleur){
@@ -81,7 +82,7 @@ void Echiquier::enleverPiece(int x, int y){
     }
 }
 
-bool Echiquier::caseAttaquee(string pos) {
+bool Echiquier::caseAttaquee(int x, int y) {
 
 }
 
