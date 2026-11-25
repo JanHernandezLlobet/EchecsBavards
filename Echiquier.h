@@ -11,6 +11,8 @@ class Echiquier{
         int largeur;
         bool couleur;
         Piece*** grille;
+        Piece* roiBlanc;
+        Piece* roiNoir;
         //Historique* historique;
 
     public:
@@ -21,10 +23,11 @@ class Echiquier{
         void ajouterPiece(Piece* piece, int x, int y);
         void enleverPiece(std::string position);
         void enleverPiece(int x, int y);
+        void deplacerPiece(Piece* piece, int x, int y);
         //bool caseAttaquee(std::string position);
         //bool caseAttaquee(int x, int y);
         //bool coupPossible(Piece* piece, std::string position);
-        //bool coupPossible(Piece* piece, int x, int y);
+        bool coupPossible(Piece* piece, int x, int y);
         bool caseAttaquee(int x, int y);
 
 };

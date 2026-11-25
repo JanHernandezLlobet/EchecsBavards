@@ -9,6 +9,7 @@ void Pion::messageMort(){
     std::cout << "Le pion en " + getPosition() + " est mort" << std::endl;
 }
 
+
 Pion::~Pion(){
     messageMort();
 }

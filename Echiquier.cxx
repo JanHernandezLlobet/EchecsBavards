@@ -120,5 +120,11 @@ bool Echiquier::caseAttaquee(int x, int y) {
 
 }
 
+void
+
+bool Echiquier::coupPossible(Piece *piece, int x, int y) {
+
+}
+
 
 

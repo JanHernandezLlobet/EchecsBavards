@@ -35,3 +35,7 @@ std::string Piece::getType(){
 std::string Piece::getPosition(){
     return this->position;
 }
+
+std::vector<std::vector<std::pair<int, int> > > Piece::getDeplacementsPossibles(int x, int y) {
+    std::cout << "Do Not Use / Not implemented yet";
+}
