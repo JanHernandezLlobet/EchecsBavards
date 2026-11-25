@@ -2,6 +2,8 @@
 #define PIECE_H
 #include <iostream>
 using namespace std;
+#include <vector>
+
 
 class Piece{
     
@@ -20,6 +22,8 @@ class Piece{
         std::string getType();
         std::string getPosition();
         ///void messageCapture();
+        std::vector<std::vector<std::pair<int, int>>> getDeplacementsPossibles();
+        static std::vector<std::vector<std::pair<int, int>>> getDeplacementsPossibles(int x, int y);
 
 };
 

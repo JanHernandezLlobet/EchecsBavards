@@ -11,7 +11,7 @@ class Cavalier : public Piece {
         Cavalier(bool couleur, std::string position);
         void messageMort();
         ~Cavalier();
-
+       
 };
 
 #endif
