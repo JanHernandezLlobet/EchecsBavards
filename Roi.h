@@ -11,6 +11,8 @@ class Roi : public Piece {
         Roi(bool couleur, std::string position);
         void messageMort();
         ~Roi();
+        std::vector<std::vector<std::pair<int, int>>> getDeplacementsPossibles(int x, int y);
+
 
 };
 

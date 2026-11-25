@@ -11,6 +11,8 @@ class Fou : public Piece {
         Fou(bool couleur, std::string position);
         void messageMort();
         ~Fou();
+        std::vector<std::vector<std::pair<int, int>>> getDeplacementsPossibles(int x, int y);
+
 
 };
 
