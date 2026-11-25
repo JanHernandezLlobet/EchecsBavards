@@ -6,13 +6,15 @@ using namespace std;
 
 
 class Piece{
-    
+
     private:
-        bool couleur;
+
         std::string position;
         std::string type;
 
     public:
+        bool couleur;
+
         Piece(bool couleur, std::string position, std::string type);
         void deplacer(std::string position);
         void deplacer(int x, int y);
@@ -22,7 +24,7 @@ class Piece{
         std::string getType();
         std::string getPosition();
         ///void messageCapture();
-        std::vector<std::vector<std::pair<int, int>>> getDeplacementsPossibles();
+        virtual std::vector<std::vector<std::pair<int, int>>> getDeplacementsPossibles() = 0;
         static std::vector<std::vector<std::pair<int, int>>> getDeplacementsPossibles(int x, int y);
 
 };
