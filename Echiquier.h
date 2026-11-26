@@ -17,6 +17,7 @@ class Echiquier{
 
     public:
         Echiquier(int longueur, int largeur, bool couleur);
+        void generer(std::vector<std::tuple<std::string, TypePiece, bool> > listePiece);
         void afficher();
         ~Echiquier();
         void ajouterPiece(Piece* piece, std::string position);
