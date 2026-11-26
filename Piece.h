@@ -25,7 +25,7 @@ class Piece{
         std::string getPosition();
         ///void messageCapture();
         std::vector<std::vector<std::pair<int, int>>> getDeplacementsPossibles();
-        std::vector<std::vector<std::pair<int, int>>> getDeplacementsPossibles(int x, int y);
+        virtual std::vector<std::vector<std::pair<int, int>>> getDeplacementsPossibles(int x, int y) = 0;
         bool getCouleur();
 };
 

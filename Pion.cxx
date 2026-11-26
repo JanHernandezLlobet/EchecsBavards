@@ -22,15 +22,15 @@ std::vector<std::vector<std::pair<int, int> > > Pion::getDeplacementsPossibles(i
         deplacements.push_back(std::vector<std::pair<int, int> >());
     }
     if (this->getCouleur()) {
-        deplacements.at(0).push_back({x, y + 1});
-        deplacements.at(0).push_back({x, y + 2});
-        deplacements.at(1).push_back({x + 1, y + 1});
-        deplacements.at(1).push_back({x - 1, y + 1});
+        if (y + 1 >= 0 && y + 1 < 8) deplacements.at(0).push_back({x, y + 1});
+        if (y + 2 >= 0 && y + 2 < 8) deplacements.at(0).push_back({x, y + 2});
+        if (x + 1 >= 0 && x + 1 < 8 && y + 1 >= 0 && y + 1 < 8) deplacements.at(1).push_back({x + 1, y + 1});
+        if (x - 1 >= 0 && x - 1 < 8 && y + 1 >= 0 && y + 1 < 8) deplacements.at(1).push_back({x - 1, y + 1});
     } else {
-        deplacements.at(0).push_back({x, y - 1});
-        deplacements.at(0).push_back({x, y - 2});
-        deplacements.at(1).push_back({x + 1, y - 1});
-        deplacements.at(1).push_back({x - 1, y - 1});
+        if (y - 1 >= 0 && y - 1 < 8) deplacements.at(0).push_back({x, y - 1});
+        if (y - 2 >= 0 && y - 2 < 8) deplacements.at(0).push_back({x, y - 2});
+        if (x + 1 >= 0 && x + 1 < 8 && y - 1 >= 0 && y - 1 < 8) deplacements.at(1).push_back({x + 1, y - 1});
+        if (x - 1 >= 0 && x - 1 < 8 && y - 1 >= 0 && y - 1 < 8) deplacements.at(1).push_back({x - 1, y - 1});
     }
     return deplacements;
 }

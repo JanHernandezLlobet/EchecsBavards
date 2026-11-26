@@ -13,7 +13,7 @@ void Piece::deplacer(std::string position){
 }
 
 void Piece::deplacer(int x, int y){
-    this->position = std::to_string('A' + x) + std::to_string(y);
+    this->position = std::string(1, static_cast<char>('A' + x)) + std::to_string(y + 1);
 }
 
 bool Piece::operator==(Piece &p){
@@ -39,13 +39,9 @@ bool Piece::getCouleur(){
     return this->couleur;
 }
 
-std::vector<std::vector<std::pair<int, int> > > Piece::getDeplacementsPossibles(int x, int y) {
-    std::cout << "Do Not Use / Not implemented yet";
-    return std::vector<std::vector<std::pair<int, int> > >();
-}
 
 std::vector<std::vector<std::pair<int, int> > > Piece::getDeplacementsPossibles() {
-    int x = this->position[0] - 'A';
-    int y = this->position[1] - '0';
+    int x = this->position[0] - 65;
+    int y = this->position[1] - 49;
     return getDeplacementsPossibles(x, y);
 }

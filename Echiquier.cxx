@@ -49,7 +49,6 @@ void Echiquier::afficher() {
         std::cout << "\n  |-----|-----|-----|-----|-----|-----|-----|-----|\n";
     }
     std::cout << "\n";
-    std::cout << "[CHAT]:\n             chat a faire...";
 }
 
 Echiquier::~Echiquier() {
@@ -134,29 +133,33 @@ bool Echiquier::caseAttaquee(int x, int y) {
 }
 
 void Echiquier::deplacerPiece(Piece *piece, int x, int y) {
+    int a = piece->position[0] - 65;
+    int b = piece->position[1] - 49;
     this->ajouterPiece(piece, x, y);
-    int a = piece->position[0] - 64;
-    int b = piece->position[1] - 48;
     grille[a][b] = nullptr;
 }
 
 
 bool Echiquier::coupPossible(Piece *piece, int x, int y) {
-    int baseX = piece->position[0] - 64;
-    int baseY = piece->position[1] - 48;
-    Piece *basePiece = grille[baseX][baseY];
-    piece->deplacer(x, y);
+    int baseX = piece->position[0] - 65;
+    int baseY = piece->position[1] - 49;
+    Piece *basePiece = grille[x][y];
+    deplacerPiece(piece,x,y);
 
     bool result = true;
 
-    if (roiBlanc->couleur == piece->couleur && caseAttaquee(roiBlanc->position[0] - 64, roiBlanc->position[1] - 48)) {
+    if (roiBlanc->couleur == piece->couleur && caseAttaquee(roiBlanc->position[0] - 65, roiBlanc->position[1] - 49)) {
         result = false;
     }
-    if (roiNoir->couleur == piece->couleur && caseAttaquee(roiNoir->position[0] - 64, roiNoir->position[1] - 48)) {
+    if (roiNoir->couleur == piece->couleur && caseAttaquee(roiNoir->position[0] - 65, roiNoir->position[1] - 49)) {
         result = false;
     }
 
+    this->deplacerPiece(piece, baseX, baseY);
+    this->grille[x][y] = basePiece;
+
     std::vector<std::vector<std::pair<int, int> > > coups = piece->getDeplacementsPossibles();
+
     if (piece->type == TypePiece::PION) {
         for (int i = 0; i < coups.at(0).size(); i++) {
             if (this->grille[coups.at(0).at(i).first][coups.at(0).at(i).second] != nullptr) {
@@ -166,28 +169,22 @@ bool Echiquier::coupPossible(Piece *piece, int x, int y) {
         }
     }
 
-    if (piece->couleur == this->grille[x][y]->couleur) {
+    if (this->grille[x][y] != nullptr && piece->couleur == this->grille[x][y]->couleur) {
         result = false;
     }
 
     if (!result) {
-        this->deplacerPiece(piece, x, y);
-        this->grille[baseX][baseY] = basePiece;
+
         return false;
     }
 
     for (int i = 0; i < coups.size(); i++) {
         for (int j = 0; j < coups.at(i).size(); j++) {
             if (coups.at(i).at(j).first == x && coups.at(i).at(j).second == y) {
-                this->deplacerPiece(piece, x, y);
-                this->grille[baseX][baseY] = basePiece;
                 return true;
             }
         }
     }
-
-    this->deplacerPiece(piece, x, y);
-    this->grille[baseX][baseY] = basePiece;
     return false;
 }
 
@@ -196,7 +193,7 @@ void Echiquier::jouerCoup(int x1, int y1, int x2, int y2) {
         if (this->grille[x1][y1]->couleur == this->couleur) {
             if (coupPossible(this->grille[x1][y1], x2, y2)) {
                 // coup possible
-                if (this->grille[x2][y2]->type == TypePiece::ROI) {
+                if (this->grille[x2][y2] != nullptr && this->grille[x2][y2]->type == TypePiece::ROI) {
                     // roi pris
                     if (this->grille[x2][y2]->couleur == 1) {
                         std::cout << "victoire des noirs" << "\n";
@@ -208,6 +205,7 @@ void Echiquier::jouerCoup(int x1, int y1, int x2, int y2) {
                 }
                 enleverPiece(x2, y2);
                 deplacerPiece(this->grille[x1][y1], x2, y2);
+                std::cout << "pièce déplacer" << std::endl;
             } else { std::cout << "coup impossible" << "\n"; }
         } else {
             std::cout << "piece selectionné de la mauvaise couleur" << "\n";
@@ -220,7 +218,7 @@ void Echiquier::jouerCoup(int x1, int y1, int x2, int y2) {
 }
 
 void Echiquier::jouerCoup(std::string coup1, std::string coup2) {
-    this->jouerCoup(coup1[0] - 64, coup1[1] - 48, coup2[0] - 64, coup2[1] - 48);
+    this->jouerCoup(coup1[0] - 65, coup1[1] - 49, coup2[0] - 65, coup2[1] - 49);
 }
 
 void Echiquier::generer(std::vector<std::tuple<std::string, TypePiece, bool> > listePiece) {

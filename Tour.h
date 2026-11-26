@@ -11,7 +11,7 @@ class Tour : public Piece {
         Tour(bool couleur, std::string position);
         void messageMort(TypePiece typePiece);
         ~Tour();
-        std::vector<std::vector<std::pair<int, int>>> getDeplacementsPossibles(int x, int y);
+        std::vector<std::vector<std::pair<int, int>>> getDeplacementsPossibles(int x, int y) override;
 
 
 };
