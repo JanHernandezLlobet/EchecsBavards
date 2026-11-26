@@ -9,6 +9,9 @@ add_executable(EchecsBavards
         Echiquier.cxx
         Reine.cxx
         Cavalier.cxx
-        Pion.h
+        Pion.cxx
+        Roi.cxx
+        Fou.cxx
+        Tour.cxx
 )
 

@@ -41,6 +41,7 @@ bool Piece::getCouleur(){
 
 std::vector<std::vector<std::pair<int, int> > > Piece::getDeplacementsPossibles(int x, int y) {
     std::cout << "Do Not Use / Not implemented yet";
+    return std::vector<std::vector<std::pair<int, int> > >();
 }
 
 std::vector<std::vector<std::pair<int, int> > > Piece::getDeplacementsPossibles() {

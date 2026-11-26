@@ -9,7 +9,6 @@ void Fou::messageMort(TypePiece typePiece){
 }
 
 Fou::~Fou(){
-    messageMort();
 }
 
 std::vector<std::vector<std::pair<int, int>>> Fou::getDeplacementsPossibles(int x, int y){
