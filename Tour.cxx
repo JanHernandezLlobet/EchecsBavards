@@ -1,6 +1,6 @@
 #include "Tour.h"
 
-Tour::Tour(bool couleur, std::string position) : Piece(couleur, position, "T"){
+Tour::Tour(bool couleur, std::string position) : Piece(couleur, position, TypePiece::TOUR){
     cout << "Tour " + position + " cree" << endl;
 }
 

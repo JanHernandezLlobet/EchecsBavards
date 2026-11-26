@@ -2,7 +2,7 @@
 
 #include <string>
 
-Piece::Piece(bool couleur, std::string position, std::string type) {
+Piece::Piece(bool couleur, std::string position, TypePiece type) {
     this->couleur = couleur; // true = blanc, false = noir
     this->position = position;
     this->type = type;
@@ -28,7 +28,7 @@ Piece::~Piece(){
     messageMort();
 }
 
-std::string Piece::getType(){
+TypePiece Piece::getType(){
     return this->type;
 }
 

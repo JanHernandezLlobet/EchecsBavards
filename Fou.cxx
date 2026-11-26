@@ -1,6 +1,6 @@
 #include "Fou.h"
 
-Fou::Fou(bool couleur, std::string position) : Piece(couleur, position, "F"){
+Fou::Fou(bool couleur, std::string position) : Piece(couleur, position, TypePiece::FOU){
     cout << "Fou " + position + " cree" << endl;
 }
 

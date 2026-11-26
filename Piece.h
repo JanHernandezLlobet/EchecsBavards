@@ -15,13 +15,13 @@ class Piece{
 
         bool couleur;
 
-        Piece(bool couleur, std::string position, std::string type);
+        Piece(bool couleur, std::string position, TypePiece type);
         void deplacer(std::string position);
         void deplacer(int x, int y);
         bool operator==(Piece &p);
         void messageMort();
         ~Piece();
-        std::string getType();
+        TypePiece getType();
         std::string getPosition();
         ///void messageCapture();
         std::vector<std::vector<std::pair<int, int>>> getDeplacementsPossibles();

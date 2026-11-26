@@ -1,6 +1,6 @@
 #include "Reine.h"
 
-Reine::Reine(bool couleur, std::string position) : Piece(couleur, position, "D"){
+Reine::Reine(bool couleur, std::string position) : Piece(couleur, position, TypePiece::REINE){
     cout << "Reine " + position + " cree" << endl;
 }
 

@@ -29,6 +29,7 @@ class Echiquier{
         //bool coupPossible(Piece* piece, std::string position);
         bool coupPossible(Piece* piece, int x, int y);
         bool caseAttaquee(int x, int y);
+        std::string typeToString(TypePiece type);
 
 };
 
