@@ -5,6 +5,25 @@ Fou::Fou(bool couleur, std::string position) : Piece(couleur, position, TypePiec
 }
 
 void Fou::messageMort(TypePiece typePiece){
+    if(typePiece == TypePiece::PION){
+        std::cout << "Pion: J'ai eu un fou ? J'AI EU UN FOU!!" << std::endl;
+        std::cout << "Fou: Tel en etait le destin." << std::endl;
+    } else if(typePiece == TypePiece::CAVALIER){
+        std::cout << "Cavalier: Haha! Take this!" << std::endl;
+        std::cout << "Fou: Tel en etait le destin." << std::endl;
+    } else if(typePiece == TypePiece::FOU){
+        std::cout << "Fou: Tel en etait le destin." << std::endl;
+        std::cout << "Fou: Que ton âme repose en paix." << std::endl;
+    } else if(typePiece == TypePiece::TOUR){
+        std::cout << "Tour: kkkkkrkkkkk! kkkkkkkkk!!" << std::endl;
+        std::cout << "Fou: Tu partiras bientôt aussi dans l'au delà démon." << std::endl;
+    } else if(typePiece == TypePiece::REINE){
+        std::cout << "Reine: La noblesse reste au dessus du clergé." << std::endl;
+        std::cout << "Fou: Dans ce monde peut-être." << std::endl;
+    } else if(typePiece == TypePiece::ROI){
+        std::cout << "Roi: Vas dire a ton Dieu qui est le véritable souverain." << std::endl;
+        std::cout << "Fou: Sacrilège!" << std::endl;
+    }
     std::cout << "Le fou en " + getPosition() + " est mort" << std::endl;
 }
 

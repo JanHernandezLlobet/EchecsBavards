@@ -5,6 +5,25 @@ Tour::Tour(bool couleur, std::string position) : Piece(couleur, position, TypePi
 }
 
 void Tour::messageMort(TypePiece typePiece){
+    if(typePiece == TypePiece::PION){
+        std::cout << "Pion: Jsuis un sappeur!" << std::endl;
+        std::cout << "Tour: kkrkr ?! kk... k..." << std::endl;
+    } else if(typePiece == TypePiece::CAVALIER){
+        std::cout << "Cavalier: Not a tower will scare me!" << std::endl;
+        std::cout << "Tour: k..." << std::endl;
+    } else if(typePiece == TypePiece::FOU){
+        std::cout << "Fou: je te renvoie d'où tu viens démon!" << std::endl;
+        std::cout << "Tour: KRKRKRRKRKKKKK!!!" << std::endl;
+    } else if(typePiece == TypePiece::TOUR){
+        std::cout << "Tour: krkrkkkkk! kkkkkrkkkrrk." << std::endl;
+        std::cout << "Tour: kkkrkk, krkrkkkk..." << std::endl;
+    } else if(typePiece == TypePiece::REINE){
+        std::cout << "Reine: On va aller chercher les trois couronnes maintenant." << std::endl;
+        std::cout << "Tour: kkk..." << std::endl;
+    } else if(typePiece == TypePiece::ROI){
+        std::cout << "Roi: Hm non je n'aime pas ce bâtiment içi, détruisez-le." << std::endl;
+        std::cout << "Tour: kk ?? rkrkrkkkk." << std::endl;
+    }
     std::cout << "La tour en " + getPosition() + " est morte" << std::endl;
 }
 
