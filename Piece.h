@@ -19,7 +19,7 @@ class Piece{
         void deplacer(std::string position);
         void deplacer(int x, int y);
         bool operator==(Piece &p);
-        void messageMort();
+        void messageMort(TypePiece typePiece);
         ~Piece();
         std::string getType();
         std::string getPosition();

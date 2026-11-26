@@ -20,7 +20,7 @@ bool Piece::operator==(Piece &p){
     return (this->position == p.position);
 }
 
-void Piece::messageMort(){
+void Piece::messageMort(TypePiece typePiece){
     std::cout << "La piece est morte" << std::endl;
 }
 
