@@ -5,6 +5,25 @@ Reine::Reine(bool couleur, std::string position) : Piece(couleur, position, Type
 }
 
 void Reine::messageMort(TypePiece typePiece){
+    if(typePiece == TypePiece::PION){
+        std::cout << "Reine: Tué par un simple pion... Quelle honte!" << std::endl;
+        std::cout << "Pion: morts aux bourges!" << std::endl;
+    } else if(typePiece == TypePiece::CAVALIER){
+        std::cout << "Cavalier: Oho! Huge jump and i kill you." << std::endl;
+        std::cout << "Reine: Quels sont ces mouvements ?!" << std::endl;
+    } else if(typePiece == TypePiece::FOU){
+        std::cout << "Reine: Comment oses tu ??" << std::endl;
+        std::cout << "Fou: Le seigneur l'exige." << std::endl;
+    } else if(typePiece == TypePiece::TOUR){
+        std::cout << "Reine: Je me fais enfermer dans une tour, nooon..." << std::endl;
+        std::cout << "Tour: kkkrkkrk!! Miam! krrkkrk." << std::endl;
+    } else if(typePiece == TypePiece::REINE){
+        std::cout << "Reine: Tué par une adversaire avec si peu de style..." << std::endl;
+        std::cout << "Reine: Je ne suis pas une simple pionne!" << std::endl;
+    } else if(typePiece == TypePiece::ROI){
+        std::cout << "Reine: Je me suis offerte, quelle sotte!" << std::endl;
+        std::cout << "Tu est désormais à moi!" << std::endl;
+    }
     std::cout << "La reine en " + getPosition() + " est morte" << std::endl;
 }
 

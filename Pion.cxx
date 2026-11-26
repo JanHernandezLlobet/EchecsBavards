@@ -6,10 +6,30 @@ Pion::Pion(bool couleur, std::string position) : Piece(couleur, position, TypePi
 }
 
 void Pion::messageMort(TypePiece typePiece) {
+
+    if(typePiece == TypePiece::PION){
+        std::cout << "Pion: Ce fut un humble duel." << std::endl;
+        std::cout << "Pion: au revoir. " << std::endl;
+    } else if(typePiece == TypePiece::CAVALIER){
+        std::cout << "Pion: c'est pas juste vous avez un cheval" << std::endl;
+        std::cout << "Cavalier: Eat the soil lil peasant." << std::endl;
+    } else if(typePiece == TypePiece::FOU){
+        std::cout << "Fou: Le prix pour tes péchés." << std::endl;
+        std::cout << "Pion: Noooon…" << std::endl;
+    } else if(typePiece == TypePiece::TOUR){
+        std::cout << "Pion: Quoi ?! Depuis quand les bâtiments se déplacent!" << std::endl;
+        std::cout << "Tour: kkkrkrrrrk!! kkkrrrrr!!" << std::endl;
+    } else if(typePiece == TypePiece::REINE){
+        std::cout << "Reine: Dehors!" << std::endl;
+        std::cout << "Pion: …" << std::endl;
+    } else if(typePiece == TypePiece::ROI){
+        std::cout << "Roi: On en est arrivés au stade ou je dois me salir les mains ?!?" << std::endl;
+        std::cout << "Pion: eh ?" << std::endl;
+    }
     std::cout << "Le pion en " + getPosition() + " est mort" << std::endl;
 }
 
-Pion::~Pion() {
+Pion::~Pion(){
 }
 
 bool Pion::getCouleur() {

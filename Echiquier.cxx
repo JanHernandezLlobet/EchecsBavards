@@ -9,6 +9,7 @@
 #include "Roi.h"
 #include "Tour.h"
 using namespace std;
+#include <tuple>
 
 Echiquier::Echiquier(int longueur, int largeur, bool couleur) {
     this->longueur = longueur;
