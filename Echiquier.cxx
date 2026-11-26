@@ -26,6 +26,11 @@ Echiquier::Echiquier(int longueur, int largeur, bool couleur) {
     }
 }
 
+std::string Echiquier::typeToString(TypePiece type){
+    static const std::string noms[] = { "P", "T", "C", "F", "D", "R" };
+    return noms[static_cast<int>(type)];
+}
+
 void Echiquier::afficher() {
     std::cout << "\n\n     A     B     C     D     E     F     G     H\n";
     std::cout << "  |-----|-----|-----|-----|-----|-----|-----|-----|\n";
@@ -37,7 +42,7 @@ void Echiquier::afficher() {
             if (grille[i][j] == nullptr) {
                 std::cout << "     ";
             } else {
-                std::cout << " " << grille[i][j]->getType() << " ";
+                std::cout << "  " << typeToString(grille[i][j]->getType()) << "  ";
             }
             std::cout << "|";
         }

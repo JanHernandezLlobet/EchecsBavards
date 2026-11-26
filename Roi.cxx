@@ -1,6 +1,6 @@
 #include "Roi.h"
 
-Roi::Roi(bool couleur, std::string position) : Piece(couleur, position, "R"){
+Roi::Roi(bool couleur, std::string position) : Piece(couleur, position, TypePiece::ROI){
     cout << "Roi " + position + " cree" << endl;
 }
 

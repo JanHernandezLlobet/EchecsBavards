@@ -1,6 +1,6 @@
 #include "Cavalier.h"
 
-Cavalier::Cavalier(bool couleur, std::string position) : Piece(couleur, position, "C"){
+Cavalier::Cavalier(bool couleur, std::string position) : Piece(couleur, position, TypePiece::CAVALIER){
     cout << "Cavalier " + position + " cree" << endl;
 }
 

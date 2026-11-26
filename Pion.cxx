@@ -1,6 +1,6 @@
 #include "Pion.h"
 
-Pion::Pion(bool couleur, std::string position) : Piece(couleur, position, "P"){
+Pion::Pion(bool couleur, std::string position) : Piece(couleur, position, TypePiece::PION){
     this->premierCoupFait = false;
     cout << "Pion " + position + " cree" << endl;
 }
@@ -33,7 +33,6 @@ std::vector<std::vector<std::pair<int, int>>> Pion::getDeplacementsPossibles(int
         deplacements.at(0).push_back({x, y-2});
         deplacements.at(1).push_back({x+1, y-1});
         deplacements.at(1).push_back({x-1, y-1});
-    }
 
     return deplacements;
 }
