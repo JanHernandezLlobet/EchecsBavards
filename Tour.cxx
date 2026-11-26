@@ -4,12 +4,11 @@ Tour::Tour(bool couleur, std::string position) : Piece(couleur, position, TypePi
     cout << "Tour " + position + " cree" << endl;
 }
 
-void Tour::messageMort(){
+void Tour::messageMort(TypePiece typePiece){
     std::cout << "La tour en " + getPosition() + " est morte" << std::endl;
 }
 
 Tour::~Tour(){
-    messageMort();
 }
 
 std::vector<std::vector<std::pair<int, int>>> Tour::getDeplacementsPossibles(int x, int y){

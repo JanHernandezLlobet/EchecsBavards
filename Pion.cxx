@@ -5,12 +5,11 @@ Pion::Pion(bool couleur, std::string position) : Piece(couleur, position, TypePi
     cout << "Pion " + position + " cree" << endl;
 }
 
-void Pion::messageMort(){
+void Pion::messageMort(TypePiece typePiece){
     std::cout << "Le pion en " + getPosition() + " est mort" << std::endl;
 }
 
 Pion::~Pion(){
-    messageMort();
 }
 
 bool Pion::getCouleur(){

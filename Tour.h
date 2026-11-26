@@ -9,7 +9,7 @@ class Tour : public Piece {
 
     public:
         Tour(bool couleur, std::string position);
-        void messageMort();
+        void messageMort(TypePiece typePiece);
         ~Tour();
         std::vector<std::vector<std::pair<int, int>>> getDeplacementsPossibles(int x, int y);
 

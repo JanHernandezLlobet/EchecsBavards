@@ -9,7 +9,7 @@ class Fou : public Piece {
 
     public:
         Fou(bool couleur, std::string position);
-        void messageMort();
+        void messageMort(TypePiece typePiece);
         ~Fou();
         std::vector<std::vector<std::pair<int, int>>> getDeplacementsPossibles(int x, int y);
 

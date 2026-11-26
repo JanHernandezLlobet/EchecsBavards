@@ -9,7 +9,7 @@ class Reine : public Piece {
 
     public:
         Reine(bool couleur, std::string position);
-        void messageMort();
+        void messageMort(TypePiece typePiece);
         ~Reine();
         std::vector<std::vector<std::pair<int, int>>> getDeplacementsPossibles(int x, int y);
         static std::vector<std::vector<std::pair<int, int>>> getDeplacementsReine(int x, int y);

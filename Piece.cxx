@@ -25,7 +25,6 @@ void Piece::messageMort(TypePiece typePiece){
 }
 
 Piece::~Piece(){
-    messageMort();
 }
 
 TypePiece Piece::getType(){

@@ -4,7 +4,7 @@ Fou::Fou(bool couleur, std::string position) : Piece(couleur, position, TypePiec
     cout << "Fou " + position + " cree" << endl;
 }
 
-void Fou::messageMort(){
+void Fou::messageMort(TypePiece typePiece){
     std::cout << "Le fou en " + getPosition() + " est mort" << std::endl;
 }
 

@@ -4,12 +4,11 @@ Reine::Reine(bool couleur, std::string position) : Piece(couleur, position, Type
     cout << "Reine " + position + " cree" << endl;
 }
 
-void Reine::messageMort(){
+void Reine::messageMort(TypePiece typePiece){
     std::cout << "La reine en " + getPosition() + " est morte" << std::endl;
 }
 
 Reine::~Reine(){
-    messageMort();
 }
 
 std::vector<std::vector<std::pair<int, int>>> Reine::getDeplacementsPossibles(int x, int y){

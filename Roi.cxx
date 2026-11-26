@@ -4,12 +4,11 @@ Roi::Roi(bool couleur, std::string position) : Piece(couleur, position, TypePiec
     cout << "Roi " + position + " cree" << endl;
 }
 
-void Roi::messageMort(){
+void Roi::messageMort(TypePiece typePiece){
     std::cout << "Le roi en " + getPosition() + " est mort" << std::endl;
 }
 
 Roi::~Roi(){
-    messageMort();
 }
 
 std::vector<std::vector<std::pair<int, int>>> Roi::getDeplacementsPossibles(int x, int y){

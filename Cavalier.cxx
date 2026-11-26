@@ -4,12 +4,11 @@ Cavalier::Cavalier(bool couleur, std::string position) : Piece(couleur, position
     cout << "Cavalier " + position + " cree" << endl;
 }
 
-void Cavalier::messageMort(){
+void Cavalier::messageMort(TypePiece typePiece){
     std::cout << "Le cavalier en " + getPosition() + " est mort" << std::endl;
 }
 
 Cavalier::~Cavalier(){
-    messageMort();
 }
 
 std::vector<std::vector<std::pair<int, int>>> Cavalier::getDeplacementsCavalier(int x, int y){
