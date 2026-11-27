@@ -29,15 +29,7 @@ Echiquier::Echiquier(int longueur, int largeur, bool couleur) {
 }
 
 std::string Echiquier::typeToString(TypePiece type){
-    static const std::string symboles[] = {
-        "♙", // Pion
-        "♖", // Tour
-        "♘", // Cavalier
-        "♗", // Fou
-        "♕", // Reine
-        "♔"  // Roi
-    };
-
+    static const std::string symboles[] = {"♟", "♜", "♞", "♝", "♛", "♚"};
     return symboles[static_cast<int>(type)];
 }
 
@@ -68,6 +60,7 @@ void Echiquier::afficher() {
 }
 
 void Echiquier::extra_line(int i){
+    std::cout << "\033[48;2;115;74;46m   ";
     for(int k = 0; k < 4; k++){
         if(i % 2 == 0){
             std::cout << "\033[48;2;250;245;235m       \033[48;2;181;140;110m       ";
@@ -75,13 +68,16 @@ void Echiquier::extra_line(int i){
             std::cout << "\033[48;2;181;140;110m       \033[48;2;250;245;235m       ";
         }
     }
-    std::cout << "\033[0m \n";
+    std::cout << "\033[48;2;115;74;46m   \033[0m\n";
 }
 
 
 void Echiquier::afficher_alternatif_grand() {
+
+    std::cout << ("\033[48;2;115;74;46m                                                              \n");
     for(int i = 0; i < longueur; i++){
         extra_line(i);
+        std::cout <<"\033[48;2;115;74;46m " << i + 1 << " "; 
         for(int j = 0; j < largeur; j++){
             if( (i + j) % 2 == 0){
                 std::cout << "\033[48;2;250;245;235m";
@@ -92,16 +88,18 @@ void Echiquier::afficher_alternatif_grand() {
                 std::cout << "       ";
             } else{
                 if(grille[j][longueur-1-i]->getCouleur() == 1){
-                    std::cout << "\033[38;2;255;255;255m";  // Blanc
+                    std::cout << "\033[38;2;80;220;100m";  // Vert
                 } else {
                     std::cout << "\033[38;2;38;32;28m";  // Noir
                 }
                 std::cout << "\033[1m" << "   " << typeToString(grille[j][longueur-1-i]->getType()) << "   ";
             }
         }
-        std::cout << "\033[0m \n";
+        std::cout << "\033[48;2;115;74;46m   \033[0m\n";
         extra_line(i);
     }
+    std::cout << ("\033[48;2;115;74;46m      A      B      C      D      E      F       G      H     ");
+    std::cout << "\033[0m\n";
 }
 
 void Echiquier::afficher_alternatif_petit() {
@@ -116,7 +114,7 @@ void Echiquier::afficher_alternatif_petit() {
                 std::cout << "   ";
             } else{
                 if(grille[j][longueur-1-i]->getCouleur() == 1){
-                    std::cout << "\033[38;2;255;255;255m";  // Blanc
+                    std::cout << "\033[38;2;20;130;40m";;  // Vert
                 } else {
                     std::cout << "\033[38;2;38;32;28m";  // Noir
                 }
@@ -346,7 +344,7 @@ void Echiquier::boucle() {
         } else {
             std::cout << "Coup hors de l'echiquier\n";
         }
-        this->afficher();
+        this->afficher_alternatif_grand();
 
     }
 }
