@@ -208,54 +208,48 @@ void Echiquier::deplacerPiece(Piece *piece, int x, int y) {
 
 
 bool Echiquier::coupPossible(Piece *piece, int x, int y) {
-    int baseX = piece->position[0] - 65;
-    int baseY = piece->position[1] - 49;
-    Piece *basePiece = grille[x][y];
-    deplacerPiece(piece,x,y);
 
-    bool result = true;
-
-    if (roiBlanc->couleur == piece->couleur && caseAttaquee(roiBlanc->position[0] - 65, roiBlanc->position[1] - 49)) {
-        result = false;
-    }
-    if (roiNoir->couleur == piece->couleur && caseAttaquee(roiNoir->position[0] - 65, roiNoir->position[1] - 49)) {
-        result = false;
-    }
-
-    this->deplacerPiece(piece, baseX, baseY);
-    this->grille[x][y] = basePiece;
-
+    // Coup possible
     std::vector<std::vector<std::pair<int, int> > > coups = piece->getDeplacementsPossibles();
 
-    if (piece->type == TypePiece::PION) {
-        for (int i = 0; i < coups.at(0).size(); i++) {
-            if (this->grille[coups.at(0).at(i).first][coups.at(0).at(i).second] != nullptr) {
-                result = false;
-                break;
-            }
-        }
-    }
-
+    // piece de destination de meme couleur?
     if (this->grille[x][y] != nullptr && piece->couleur == this->grille[x][y]->couleur) {
-        result = false;
-    }
-
-    if (!result) {
-
         return false;
     }
 
-    for (int i = 0; i < coups.size(); i++) {
-        for (int j = 0; j < coups.at(i).size(); j++) {
-            if (coups.at(i).at(j).first == x && coups.at(i).at(j).second == y) {
+
+    if (piece->type == TypePiece::PION) {
+        // cas du pion
+        for (int j = 0; j < coups.at(0).size(); j++) { // cas avant et pas bloquer
+            if (coups.at(0).at(j).first == x && coups.at(0).at(j).second == y
+                && this->grille[x][y] == nullptr ) {
                 return true;
+            }
+        }
+        if (coups.at(1).at(0).first == x && coups.at(1).at(0).second == y
+            && this->grille[x][y] != nullptr && piece->couleur != this->grille[x][y]->couleur) {
+            // attaque diagonale 1 differente couleur?
+            return true;
+        }
+        if (coups.at(2).at(0).first == x && coups.at(2).at(0).second == y
+            && this->grille[x][y] != nullptr && piece->couleur != this->grille[x][y]->couleur) {
+            // attaque diagonale 2 differente couleur?
+            return true;
+        }
+    } else {
+        // cas general
+        for (int i = 0; i < coups.size(); i++) {
+            for (int j = 0; j < coups.at(i).size(); j++) {
+                if (coups.at(i).at(j).first == x && coups.at(i).at(j).second == y) {
+                    return true;
+                }
             }
         }
     }
     return false;
 }
 
-void Echiquier::jouerCoup(int x1, int y1, int x2, int y2) {
+bool Echiquier::jouerCoup(int x1, int y1, int x2, int y2) {
     if (this->grille[x1][y1] != nullptr) {
         if (this->grille[x1][y1]->couleur == this->couleur) {
             if (coupPossible(this->grille[x1][y1], x2, y2)) {
@@ -273,6 +267,7 @@ void Echiquier::jouerCoup(int x1, int y1, int x2, int y2) {
                 enleverPiece(x2, y2);
                 deplacerPiece(this->grille[x1][y1], x2, y2);
                 std::cout << "piece deplacer" << std::endl;
+                return true;
             } else { std::cout << "coup impossible" << "\n"; }
         } else {
             std::cout << "piece selectionne de la mauvaise couleur" << "\n";
@@ -280,12 +275,11 @@ void Echiquier::jouerCoup(int x1, int y1, int x2, int y2) {
     } else {
         std::cout << "case vide" << "\n";
     }
-
-    this->afficher();
+    return false;
 }
 
-void Echiquier::jouerCoup(std::string coup1, std::string coup2) {
-    this->jouerCoup(coup1[0] - 65, coup1[1] - 49, coup2[0] - 65, coup2[1] - 49);
+bool Echiquier::jouerCoup(std::string coup1, std::string coup2) {
+    return this->jouerCoup(coup1[0] - 65, coup1[1] - 49, coup2[0] - 65, coup2[1] - 49);
 }
 
 void Echiquier::generer(std::vector<std::tuple<std::string, TypePiece, bool> > listePiece) {
@@ -312,16 +306,37 @@ void Echiquier::generer(std::vector<std::tuple<std::string, TypePiece, bool> > l
                                        , std::get<0>(listePiece.at(i))), std::get<0>(listePiece.at(i)));
                 break;
             case TypePiece::ROI:
-                if (std::get<2>(listePiece.at(i)) == true)
-                {this->roiBlanc = new Roi(std::get<2>(listePiece.at(i))
-                                      , std::get<0>(listePiece.at(i)));
-                ajouterPiece(this->roiBlanc, std::get<0>(listePiece.at(i)));
-                }
-                else{this->roiNoir = new Roi(std::get<2>(listePiece.at(i))
-                                      , std::get<0>(listePiece.at(i)));
+                if (std::get<2>(listePiece.at(i)) == true) {
+                    this->roiBlanc = new Roi(std::get<2>(listePiece.at(i))
+                                             , std::get<0>(listePiece.at(i)));
+                    ajouterPiece(this->roiBlanc, std::get<0>(listePiece.at(i)));
+                } else {
+                    this->roiNoir = new Roi(std::get<2>(listePiece.at(i))
+                                            , std::get<0>(listePiece.at(i)));
                     ajouterPiece(this->roiNoir, std::get<0>(listePiece.at(i)));
                 }
                 break;
         }
+    }
+}
+
+void Echiquier::boucle() {
+    char c1, l1, c2, l2;
+
+    while (std::cin >> c1 >> l1 >> c2 >> l2) {
+
+        if (c1 >= 'A' && c1 <= 'H' && l1 >= '1' && l1 <= '8' && c2 >= 'A' && c2 <= 'H' && l2 >= '1' && l2 <= '8') {
+            std::string case1  = {c1, l1};
+            std::string case2 = {c2, l2};
+
+            if (jouerCoup(case1, case2)) {
+                this->couleur = !couleur;
+            }
+
+        } else {
+            std::cout << "Coup hors de l'echiquier\n";
+        }
+        this->afficher();
+
     }
 }

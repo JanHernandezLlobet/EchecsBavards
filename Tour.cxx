@@ -33,8 +33,8 @@ Tour::~Tour(){
 std::vector<std::vector<std::pair<int, int>>> Tour::getDeplacementsPossibles(int x, int y){
     std::vector<std::vector<std::pair<int, int>>> deplacements;
     int droite = x;
-    int gauche = 9-x;
-    int haut = 9-y;
+    int gauche = 7-x;
+    int haut = 7-y;
     int bas = y;
     for(int i = 0; i < 4; i++){
         deplacements.push_back(std::vector<std::pair<int, int>>());

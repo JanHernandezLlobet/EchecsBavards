@@ -1,6 +1,8 @@
 #ifndef ECHIQUIER_H
 #define ECHIQUIER_H
 #include <iostream>
+
+#include "Pion.h"
 using namespace std;
 #include "Piece.h"
 #include <tuple>

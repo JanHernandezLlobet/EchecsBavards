@@ -32,24 +32,24 @@ Fou::~Fou(){
 
 std::vector<std::vector<std::pair<int, int>>> Fou::getDeplacementsPossibles(int x, int y){
     std::vector<std::vector<std::pair<int, int>>> deplacements;
-    int droite = x;
-    int gauche = 9-x;
-    int haut = 9-y;
+    int droite = 7-x;
+    int gauche = x;
+    int haut = 7-y;
     int bas = y;
     for(int i = 0; i < 4; i++){
         deplacements.push_back(std::vector<std::pair<int, int>>());
     }
-    for(int i = 0; i < std::min(droite, haut); i++){
-        deplacements.at(4).push_back({x+i, y+i});
+    for(int i = 1; i <= std::min(droite, haut); i++){
+        deplacements.at(0).push_back({x+i, y+i});
     }
-    for(int i = 0; i < std::min(gauche, haut); i++){
-        deplacements.at(5).push_back({x-i, y+i});
+    for(int i = 1; i <= std::min(gauche, haut); i++){
+        deplacements.at(1).push_back({x-i, y+i});
     }
-    for(int i = 0; i < std::min(droite, bas); i++){
-        deplacements.at(6).push_back({x+i, y-i});
+    for(int i = 1; i <= std::min(droite, bas); i++){
+        deplacements.at(2).push_back({x+i, y-i});
     }
-    for(int i = 0; i < std::min(gauche, bas); i++){
-        deplacements.at(7).push_back({x-i, y-i});
+    for(int i = 1; i <= std::min(gauche, bas); i++){
+        deplacements.at(3).push_back({x-i, y-i});
     }
     return deplacements;
 }
