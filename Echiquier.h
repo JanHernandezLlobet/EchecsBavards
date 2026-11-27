@@ -1,6 +1,8 @@
 #ifndef ECHIQUIER_H
 #define ECHIQUIER_H
 #include <iostream>
+
+#include "Pion.h"
 using namespace std;
 #include "Piece.h"
 
@@ -31,8 +33,10 @@ class Echiquier{
         bool coupPossible(Piece* piece, int x, int y);
         bool caseAttaquee(int x, int y);
         std::string typeToString(TypePiece type);
-        void jouerCoup(int x1, int y1, int x2, int y2);
-        void jouerCoup(std::string coup1, std::string coup2);
+        bool jouerCoup(int x1, int y1, int x2, int y2);
+        bool jouerCoup(std::string coup1, std::string coup2);
+
+        void boucle();
 
 };
 
