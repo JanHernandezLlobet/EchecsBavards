@@ -41,7 +41,7 @@ int main() {
     };
 
     echiquier.generer(posInitiale);
-    echiquier.afficher();
+    echiquier.afficher_alternatif();
     echiquier.jouerCoup("E2", "E3");
     
     return 0;

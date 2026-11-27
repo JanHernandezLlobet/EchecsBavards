@@ -3,6 +3,7 @@
 #include <iostream>
 using namespace std;
 #include "Piece.h"
+#include <tuple>
 
 class Echiquier{
     
@@ -33,6 +34,7 @@ class Echiquier{
         std::string typeToString(TypePiece type);
         void jouerCoup(int x1, int y1, int x2, int y2);
         void jouerCoup(std::string coup1, std::string coup2);
+        void afficher_alternatif();
 
 };
 
