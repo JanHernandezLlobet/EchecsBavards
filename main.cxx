@@ -8,13 +8,13 @@
 
 int main() {
 #ifdef _WIN32
-    // Active le support des codes couleurs ANSI sous Windows
     HANDLE hOut = GetStdHandle(STD_OUTPUT_HANDLE);
     DWORD dwMode = 0;
     GetConsoleMode(hOut, &dwMode);
     dwMode |= ENABLE_VIRTUAL_TERMINAL_PROCESSING;
     SetConsoleMode(hOut, dwMode);
 #endif
+    SetConsoleOutputCP(CP_UTF8);
 
 
 

@@ -15,3 +15,6 @@ add_executable(EchecsBavards
         Tour.cxx
 )
 
+if(MSVC)
+    add_compile_options(/utf-8)
+endif()
