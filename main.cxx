@@ -57,6 +57,8 @@ int main() {
     echiquier.generer(posInitiale);
     echiquier.afficher_alternatif_petit();
     echiquier.afficher_alternatif_grand();
+
+    echiquier.selectionnerAffichage();
     echiquier.boucle();
 
     return 0;

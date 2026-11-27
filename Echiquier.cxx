@@ -42,29 +42,17 @@ std::string Echiquier::typeToString(TypePiece type){
 }
 
 void Echiquier::afficher() {
-
-    std::cout << "  |-----|-----|-----|-----|-----|-----|-----|-----|\n";
-    for (int i = 0; i < longueur; i++) {
-        std::cout << longueur - i << " |";
-
-
-        for (int j = 0; j < largeur; j++) {
-            if (grille[j][longueur-1-i] == nullptr) {
-                std::cout << "     ";
-            } else {
-                if(grille[j][longueur-1-i]->getCouleur() == 1){
-                    std::cout << "\033[31m";
-                } else {
-                    std::cout << "\033[34m";
-                }
-                std::cout << "  " << typeToString(grille[j][longueur-1-i]->getType()) << "  \033[0m";
-            }
-            std::cout << "|";
-        }
-        std::cout << "\n  |-----|-----|-----|-----|-----|-----|-----|-----|\n";
+    switch (this->affichage) {
+        case 3 :
+            this->afficher_bleu_rouge();
+            break;
+        case 1 :
+            this->afficher_alternatif_grand();
+        case 2 : this->afficher_alternatif_petit();
+        default:
+            this->afficher_alternatif_grand();
     }
-    std::cout << "     A     B     C     D     E     F     G     H\n";
-    std::cout << "\n";
+
 }
 
 void Echiquier::extra_line(int i){
@@ -332,6 +320,8 @@ void Echiquier::generer(std::vector<std::tuple<std::string, TypePiece, bool> > l
 
 void Echiquier::boucle() {
     char c1, l1, c2, l2;
+    this->afficher();
+
 
     while (std::cin >> c1 >> l1 >> c2 >> l2) {
 
@@ -349,4 +339,38 @@ void Echiquier::boucle() {
         this->afficher();
 
     }
+}
+
+void Echiquier::afficher_bleu_rouge() {
+    std::cout << "  |-----|-----|-----|-----|-----|-----|-----|-----|\n";
+    for (int i = 0; i < longueur; i++) {
+        std::cout << longueur - i << " |";
+
+
+        for (int j = 0; j < largeur; j++) {
+            if (grille[j][longueur-1-i] == nullptr) {
+                std::cout << "     ";
+            } else {
+                if(grille[j][longueur-1-i]->getCouleur() == 1){
+                    std::cout << "\033[31m";
+                } else {
+                    std::cout << "\033[34m";
+                }
+                std::cout << "  " << typeToString(grille[j][longueur-1-i]->getType()) << "  \033[0m";
+            }
+            std::cout << "|";
+        }
+        std::cout << "\n  |-----|-----|-----|-----|-----|-----|-----|-----|\n";
+    }
+    std::cout << "     A     B     C     D     E     F     G     H\n";
+    std::cout << "\n";
+}
+
+void Echiquier::selectionnerAffichage() {
+
+    std::cout << "selectionner un affichage : \n - (1) Defaut\n - (2) Petit\n - (3) Rouge/Bleue\n";
+
+    char c1;
+    std::cin >> c1;
+    this->affichage = c1 - '0' + 1;
 }
