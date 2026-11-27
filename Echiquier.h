@@ -36,9 +36,10 @@ class Echiquier{
         std::string typeToString(TypePiece type);
         bool jouerCoup(int x1, int y1, int x2, int y2);
         bool jouerCoup(std::string coup1, std::string coup2);
-
+        void afficher_alternatif_grand();
+        void extra_line(int i);
+        void afficher_alternatif_petit();
         void boucle();
-        void afficher_alternatif();
 
 };
 
