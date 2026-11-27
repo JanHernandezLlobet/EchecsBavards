@@ -33,22 +33,23 @@ std::string Echiquier::typeToString(TypePiece type){
 }
 
 void Echiquier::afficher() {
-    std::cout << "\n\n     A     B     C     D     E     F     G     H\n";
+
     std::cout << "  |-----|-----|-----|-----|-----|-----|-----|-----|\n";
     for (int i = 0; i < longueur; i++) {
-        std::cout << i + 1 << " |";
+        std::cout << longueur - i << " |";
 
 
         for (int j = 0; j < largeur; j++) {
-            if (grille[i][j] == nullptr) {
+            if (grille[j][longueur-1-i] == nullptr) {
                 std::cout << "     ";
             } else {
-                std::cout << "  " << typeToString(grille[i][j]->getType()) << "  ";
+                std::cout << "  " << typeToString(grille[j][longueur-1-i]->getType()) << "  ";
             }
             std::cout << "|";
         }
         std::cout << "\n  |-----|-----|-----|-----|-----|-----|-----|-----|\n";
     }
+    std::cout << "     A     B     C     D     E     F     G     H\n";
     std::cout << "\n";
 }
 
@@ -206,10 +207,10 @@ void Echiquier::jouerCoup(int x1, int y1, int x2, int y2) {
                 }
                 enleverPiece(x2, y2);
                 deplacerPiece(this->grille[x1][y1], x2, y2);
-                std::cout << "pièce déplacer" << std::endl;
+                std::cout << "piece deplacer" << std::endl;
             } else { std::cout << "coup impossible" << "\n"; }
         } else {
-            std::cout << "piece selectionné de la mauvaise couleur" << "\n";
+            std::cout << "piece selectionne de la mauvaise couleur" << "\n";
         }
     } else {
         std::cout << "case vide" << "\n";
