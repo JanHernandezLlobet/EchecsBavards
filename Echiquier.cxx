@@ -68,7 +68,7 @@ void Echiquier::afficher_alternatif_grand() {
     std::cout << ("\033[48;2;115;74;46m                                                              \033[0m\n");
     for(int i = 0; i < longueur; i++){
         extra_line(i);
-        std::cout <<"\033[48;2;115;74;46m " << i + 1 << " "; 
+        std::cout <<"\033[48;2;115;74;46m " << 8 - i << " "; 
         for(int j = 0; j < largeur; j++){
             if( (i + j) % 2 == 0){
                 std::cout << "\033[48;2;250;245;235m";
@@ -89,7 +89,7 @@ void Echiquier::afficher_alternatif_grand() {
         std::cout << "\033[48;2;115;74;46m   \033[0m\n";
         extra_line(i);
     }
-    std::cout << ("\033[48;2;115;74;46m      A      B      C      D      E      F       G      H     ");
+    std::cout << ("\033[48;2;115;74;46m      A      B      C      D      E      F      G      H      ");
     std::cout << "\033[0m\n";
 }
 
@@ -337,6 +337,8 @@ void Echiquier::boucle() {
         } else {
             std::cout << "Coup hors de l'echiquier\n";
         }
+        std::cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
+
         this->afficher_alternatif_grand();
 
     }

@@ -1,5 +1,8 @@
 #ifdef _WIN32
 #include <windows.h>
+#ifndef ENABLE_VIRTUAL_TERMINAL_PROCESSING
+#define ENABLE_VIRTUAL_TERMINAL_PROCESSING 0x0004
+#endif
 #endif
 #include "Echiquier.h"
 #include "Piece.h"
@@ -59,6 +62,11 @@ int main() {
     echiquier.afficher_alternatif_grand();
 
     echiquier.selectionnerAffichage();
+
+    for(int i=0; i < 100; i++){
+        std::cout << "\n";
+    }
+
     echiquier.boucle();
 
     return 0;
