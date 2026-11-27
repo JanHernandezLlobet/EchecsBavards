@@ -2,7 +2,17 @@
 #include "Piece.h"
 #include <iostream>
 
+#ifdef _WIN32
+#include <windows.h>
+#endif
+
 int main() {
+
+#ifdef _WIN32
+// Force la console Windows à interpréter la sortie en UTF-8
+SetConsoleOutputCP(CP_UTF8);
+#endif
+
     Echiquier echiquier(8, 8, true);
 
     std::vector<std::tuple<std::string, TypePiece, bool>> posInitiale = {

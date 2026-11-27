@@ -10,6 +10,8 @@
 #include "Tour.h"
 using namespace std;
 
+
+
 Echiquier::Echiquier(int longueur, int largeur, bool couleur) {
     this->longueur = longueur;
     this->largeur = largeur;
@@ -27,8 +29,16 @@ Echiquier::Echiquier(int longueur, int largeur, bool couleur) {
 }
 
 std::string Echiquier::typeToString(TypePiece type){
-    static const std::string noms[] = { "P", "T", "C", "F", "D", "R" };
-    return noms[static_cast<int>(type)];
+    static const std::string symboles[] = {
+        "♙", // Pion
+        "♖", // Tour
+        "♘", // Cavalier
+        "♗", // Fou
+        "♕", // Reine
+        "♔"  // Roi
+    };
+
+    return symboles[static_cast<int>(type)];
 }
 
 void Echiquier::afficher() {
