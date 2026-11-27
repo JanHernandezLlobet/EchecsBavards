@@ -34,11 +34,12 @@ class Echiquier{
         bool coupPossible(Piece* piece, int x, int y);
         bool caseAttaquee(int x, int y);
         std::string typeToString(TypePiece type);
-        void jouerCoup(int x1, int y1, int x2, int y2);
-        void jouerCoup(std::string coup1, std::string coup2);
+        bool jouerCoup(int x1, int y1, int x2, int y2);
+        bool jouerCoup(std::string coup1, std::string coup2);
         void afficher_alternatif_grand();
         void extra_line(int i);
         void afficher_alternatif_petit();
+        void boucle();
 
 };
 

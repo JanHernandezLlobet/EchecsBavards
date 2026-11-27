@@ -42,7 +42,8 @@ int main() {
 
     echiquier.generer(posInitiale);
     echiquier.afficher_alternatif_petit();
-    echiquier.jouerCoup("E2", "E3");
     echiquier.afficher_alternatif_grand();
+    echiquier.boucle();
+
     return 0;
 }
