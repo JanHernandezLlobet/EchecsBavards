@@ -41,9 +41,11 @@ int main() {
     };
 
     echiquier.generer(posInitiale);
+    echiquier.afficher_alternatif();
+    echiquier.jouerCoup("E2", "E3");
 
     //echiquier.jouerCoup("E2", "E3");
     echiquier.boucle();
-    
+
     return 0;
 }

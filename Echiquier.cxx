@@ -9,7 +9,6 @@
 #include "Roi.h"
 #include "Tour.h"
 using namespace std;
-#include <tuple>
 
 Echiquier::Echiquier(int longueur, int largeur, bool couleur) {
     this->longueur = longueur;
@@ -27,22 +26,28 @@ Echiquier::Echiquier(int longueur, int largeur, bool couleur) {
     }
 }
 
-std::string Echiquier::typeToString(TypePiece type) {
-    static const std::string noms[] = {"P", "T", "C", "F", "D", "R"};
+std::string Echiquier::typeToString(TypePiece type){
+    static const std::string noms[] = { "P", "T", "C", "F", "D", "R" };
     return noms[static_cast<int>(type)];
 }
 
 void Echiquier::afficher() {
+
     std::cout << "  |-----|-----|-----|-----|-----|-----|-----|-----|\n";
     for (int i = 0; i < longueur; i++) {
         std::cout << longueur - i << " |";
 
 
         for (int j = 0; j < largeur; j++) {
-            if (grille[j][longueur - 1 - i] == nullptr) {
+            if (grille[j][longueur-1-i] == nullptr) {
                 std::cout << "     ";
             } else {
-                std::cout << "  " << typeToString(grille[j][longueur - 1 - i]->getType()) << "  ";
+                if(grille[j][longueur-1-i]->getCouleur() == 1){
+                    std::cout << "\033[31m";
+                } else {
+                    std::cout << "\033[34m";
+                }
+                std::cout << "  " << typeToString(grille[j][longueur-1-i]->getType()) << "  \033[0m";
             }
             std::cout << "|";
         }
@@ -51,6 +56,27 @@ void Echiquier::afficher() {
     std::cout << "     A     B     C     D     E     F     G     H\n";
     std::cout << "\n";
 }
+
+void Echiquier::afficher_alternatif() {
+    for(int i = 0; i < longueur; i++){
+        for(int j = 0; j < largeur; j++){
+            if( (i + j) % 2 == 0){
+                std::cout << "\033[47m";
+            } else {
+                std::cout << "\033[40m";
+            }
+            if (grille[j][longueur-1-i] == nullptr) {
+                std::cout << "   ";
+            } else{
+                std::cout << " " << typeToString(grille[j][longueur-1-i]->getType()) << " ";
+            }
+        }
+        std::cout << "\033[0m \n";
+    }
+}
+
+
+
 
 Echiquier::~Echiquier() {
     for (int i = 0; i < longueur; i++) {

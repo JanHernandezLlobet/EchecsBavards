@@ -5,6 +5,7 @@
 #include "Pion.h"
 using namespace std;
 #include "Piece.h"
+#include <tuple>
 
 class Echiquier{
     
@@ -37,6 +38,7 @@ class Echiquier{
         bool jouerCoup(std::string coup1, std::string coup2);
 
         void boucle();
+        void afficher_alternatif();
 
 };
 
