@@ -1,8 +1,23 @@
+#ifdef _WIN32
+#include <windows.h>
+#endif
 #include "Echiquier.h"
 #include "Piece.h"
 #include <iostream>
 
+
 int main() {
+#ifdef _WIN32
+    // Active le support des codes couleurs ANSI sous Windows
+    HANDLE hOut = GetStdHandle(STD_OUTPUT_HANDLE);
+    DWORD dwMode = 0;
+    GetConsoleMode(hOut, &dwMode);
+    dwMode |= ENABLE_VIRTUAL_TERMINAL_PROCESSING;
+    SetConsoleMode(hOut, dwMode);
+#endif
+
+
+
     Echiquier echiquier(8, 8, true);
 
     std::vector<std::tuple<std::string, TypePiece, bool>> posInitiale = {
@@ -39,7 +54,7 @@ int main() {
         {"G8", TypePiece::CAVALIER, false},
         {"H8", TypePiece::TOUR,     false}
     };
-
+    std::cout << "Roi blanc : \u2654 | Dame blanche : \u2655\n";
     echiquier.generer(posInitiale);
     echiquier.afficher_alternatif();
     echiquier.jouerCoup("E2", "E3");
