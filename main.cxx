@@ -5,7 +5,6 @@
 #include "Piece.h"
 #include <iostream>
 
-
 int main() {
 #ifdef _WIN32
     HANDLE hOut = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -54,7 +53,7 @@ int main() {
         {"G8", TypePiece::CAVALIER, false},
         {"H8", TypePiece::TOUR,     false}
     };
-    std::cout << "Roi blanc : \u2654 | Dame blanche : \u2655\n";
+
     echiquier.generer(posInitiale);
     echiquier.afficher_alternatif_petit();
     echiquier.afficher_alternatif_grand();
