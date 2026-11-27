@@ -29,7 +29,7 @@ Echiquier::Echiquier(int longueur, int largeur, bool couleur) {
 }
 
 std::string Echiquier::typeToString(TypePiece type){
-    static const std::string symboles[] = {"♟", "♜", "♞", "♝", "♛", "♚"};
+    static const std::string symboles[] = {"♙", "♜", "♞", "♝", "♛", "♚"};
     return symboles[static_cast<int>(type)];
 }
 
@@ -40,7 +40,10 @@ void Echiquier::afficher() {
             break;
         case 1 :
             this->afficher_alternatif_grand();
-        case 2 : this->afficher_alternatif_petit();
+            break;
+        case 2 :
+            this->afficher_alternatif_petit();
+            break;
         default:
             this->afficher_alternatif_grand();
     }
@@ -370,5 +373,5 @@ void Echiquier::selectionnerAffichage() {
 
     char c1;
     std::cin >> c1;
-    this->affichage = c1 - '0' + 1;
+    this->affichage = c1 - '0';
 }
