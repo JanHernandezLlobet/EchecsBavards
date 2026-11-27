@@ -74,7 +74,7 @@ void Echiquier::extra_line(int i){
 
 void Echiquier::afficher_alternatif_grand() {
 
-    std::cout << ("\033[48;2;115;74;46m                                                              \n");
+    std::cout << ("\033[48;2;115;74;46m                                                              \033[0m\n");
     for(int i = 0; i < longueur; i++){
         extra_line(i);
         std::cout <<"\033[48;2;115;74;46m " << i + 1 << " "; 
